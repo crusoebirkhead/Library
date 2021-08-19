@@ -17,20 +17,81 @@ function addBook(){
         document.getElementById('pages').value,
         document.getElementsByClassName('read').value
     )
-    myLibrary.push(book)
+    myLibrary.push(book);
     outputBook();
+    // changeClass();
+    createCard();
 }
 
 function outputBook() {
     output = "";
     for(var i = 0; i < myLibrary.length; i++) {
-       output += (i + 1) + ") " + myLibrary[i].outputBook() + "; ";
+       output += myLibrary[i].outputBook();
     }
-    document.getElementById("output").innerHTML = output;
+    modal.style.display = "none";
+    document.querySelector('.output').innerHTML = output;
  }
 
+function createCard(){
+    var display = document.querySelector('body');
+
+    var card = document.querySelector('.card');
+    var cardClone = card.cloneNode(true);
+    cardClone.classList.add('new-card');
+    display.after(cardClone);
+
+    var icon = document.querySelector('#icon');
+    var iconClone = icon.cloneNode(true);
+    iconClone.classList.add('fas fa-book');
+    card.after(iconClone);
+
+    var cardBody = document.querySelector('.card-body');
+    var cardBodyClone = cardBody.cloneNode(true)
+    cardBodyClone.classList.add('card-body');
+    card.after(cardBodyClone);
+
+    var cardTitle = document.querySelector('.card-title');
+    var cardTitleClone = cardTitle.cloneNode(true)
+    cardTitleClone.classList.add('card-title');
+    cardBody.after(cardTitleClone);
+
+    var cardText = document.querySelector('.card-text');
+    var cardTextClone = cardText.cloneNode(true)
+    cardBodyClone.classList.add('card-body');
+    cardBody.after(cardTextClone);
+
+    var toggle = document.querySelector('.switch');
+    var toggleClone = toggle.cloneNode(true)
+    toggleClone.classList.add('switch');
+    cardBody.after(toggleClone);
+
+    var input = document.querySelector('#check');
+    var inputClone = input.cloneNode(true)
+    toggle.after(inputClone);
+
+    var slider = document.querySelector('.slider round');
+    var sliderClone = slider.cloneNode(true)
+    sliderClone.classList.add('slider round');
+    toggle.after(sliderClone);
 
 
+
+    
+}
+
+//  function changeClass(){
+//     const displayDiv = document.querySelector('.display');
+//     displayDiv.classList.remove('display');
+//     displayDiv.classList.add('display-null');
+
+//     const cardDiv = document.querySelector('.card');
+//     cardDiv.classList.remove('card');
+//     cardDiv.classList.add('card-null');
+
+//     const toggle = document.querySelector('.switch');
+//     toggle.classList.remove('switch');
+//     toggle.classList.add('switch-null');
+//  }
 
 
  
