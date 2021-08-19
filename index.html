@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <button id="myBtn">Add Book</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <label for="title">Title</label>
+    <input id="title" type="text">
+    <label for="author">Author</label>
+    <input id="author" type="text">
+    <label for="pages">Pages</label>
+    <input id="pages" type="text">
+    <label for="read">Yes</label>
+    <input type="radio" class="read" value="yes" type="text">
+    <label for="read">No</label>
+    <input type="radio" class="read" value="no" type="text">
+    <label>Have you read it yet?</label>
+    <button onclick="addBook()" id="add">Add</button>
+  </div>
+
+</div>
+
+<div class="display">
+
+
+</div>
+  
+        <p id="output"></p>
+    <script src="script.js"></script>
+</body>
+</html>
