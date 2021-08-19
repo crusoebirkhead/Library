@@ -18,83 +18,24 @@ function addBook(){
         document.getElementsByClassName('read').value
     )
     myLibrary.push(book);
-    outputBook();
-    // changeClass();
-    createCard();
-}
 
-function outputBook() {
-    output = "";
-    for(var i = 0; i < myLibrary.length; i++) {
-       output += myLibrary[i].outputBook();
-    }
+    myLibrary.forEach( book => 
+      document.body.insertAdjacentHTML("beforeend", 
+      `<div class="card" style="width: 18rem;">
+      <i id="icon" class="fas fa-book"></i>
+      <div class="card-body">
+        <h5 class="card-title">${book.title}</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+      <label class="switch">
+        <input id="check" type="checkbox">
+        <span class="slider round"></span>
+       </label>
+    </div>`))
     modal.style.display = "none";
-    document.querySelector('.output').innerHTML = output;
- }
-
-function createCard(){
-    var display = document.querySelector('body');
-
-    var card = document.querySelector('.card');
-    var cardClone = card.cloneNode(true);
-    cardClone.classList.add('new-card');
-    display.after(cardClone);
-
-    var icon = document.querySelector('#icon');
-    var iconClone = icon.cloneNode(true);
-    iconClone.classList.add('fas fa-book');
-    card.after(iconClone);
-
-    var cardBody = document.querySelector('.card-body');
-    var cardBodyClone = cardBody.cloneNode(true)
-    cardBodyClone.classList.add('card-body');
-    card.after(cardBodyClone);
-
-    var cardTitle = document.querySelector('.card-title');
-    var cardTitleClone = cardTitle.cloneNode(true)
-    cardTitleClone.classList.add('card-title');
-    cardBody.after(cardTitleClone);
-
-    var cardText = document.querySelector('.card-text');
-    var cardTextClone = cardText.cloneNode(true)
-    cardBodyClone.classList.add('card-body');
-    cardBody.after(cardTextClone);
-
-    var toggle = document.querySelector('.switch');
-    var toggleClone = toggle.cloneNode(true)
-    toggleClone.classList.add('switch');
-    cardBody.after(toggleClone);
-
-    var input = document.querySelector('#check');
-    var inputClone = input.cloneNode(true)
-    toggle.after(inputClone);
-
-    var slider = document.querySelector('.slider round');
-    var sliderClone = slider.cloneNode(true)
-    sliderClone.classList.add('slider round');
-    toggle.after(sliderClone);
-
-
-
-    
 }
 
-//  function changeClass(){
-//     const displayDiv = document.querySelector('.display');
-//     displayDiv.classList.remove('display');
-//     displayDiv.classList.add('display-null');
 
-//     const cardDiv = document.querySelector('.card');
-//     cardDiv.classList.remove('card');
-//     cardDiv.classList.add('card-null');
-
-//     const toggle = document.querySelector('.switch');
-//     toggle.classList.remove('switch');
-//     toggle.classList.add('switch-null');
-//  }
-
-
- 
 var modal = document.getElementById("myModal");
 var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
