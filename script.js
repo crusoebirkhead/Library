@@ -10,6 +10,7 @@ function createBook(title, author, pages, read) {
     }
 }
 
+// Adds book to library and uses post function to post it
 function addBook(){
     var book = new createBook(
         document.getElementById('title').value,
@@ -17,7 +18,9 @@ function addBook(){
         document.getElementById('pages').value,
         document.getElementById('read').value
     )
+
     myLibrary.push(book);
+
     const library = document.getElementById('library');
     const cards = document.querySelectorAll('.card')
     cards.forEach(book => library.removeChild(book))
@@ -29,7 +32,7 @@ function addBook(){
     modal.style.display = "none";
     }
 
-    
+// Creates HTML elements to post book details
 function postBook(book){
   const library = document.getElementById('library');
 
@@ -49,24 +52,41 @@ const card = document.querySelector('.card')
 const removeButton = document.createElement('button')
 const readButton = document.createElement('button')
 
+card.setAttribute('id', myLibrary.indexOf(book))
+
 removeButton.classList.add('remove-button')
 readButton.classList.add('read-button')
+
+removeButton.innerHTML = 'Delete'
 
 card.appendChild(removeButton)
 card.appendChild(readButton)
 
-if(book.read ===false){
+if(book.read === false){
   readButton.textContent = 'Not Read'
 } else{
   readButton.textContent = 'Read'
 }
+
+removeButton.addEventListener('click', () => {
+  myLibrary.splice(myLibrary.indexOf(book),1)
+})
+
+readButton.addEventListener('click', () => {
+  book.read = !book.read
+  if (readButton.innerHTML === 'Read'){
+    readButton.innerHTML = 'Not Read'
+  } else if (readButton.innerHTML === 'Not Read') {
+    readButton.innerHTML = 'Read'
+  }
+})
 }
 
 
 
 
 
-
+//Modal
 var modal = document.getElementById("myModal");
 var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
