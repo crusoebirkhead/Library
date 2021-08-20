@@ -6,7 +6,7 @@ function createBook(title, author, pages, read) {
     this.pages = pages
     this.read = read
     this.outputBook = function (){
-        return this.title + ' by ' + this.author + ' which has ' + this.pages + ' pages '
+        return this.title + ' by ' + this.author + ' which has ' + this.pages + ' pages ' + this.read
     }
 }
 
@@ -15,25 +15,44 @@ function addBook(){
         document.getElementById('title').value,
         document.getElementById('author').value,
         document.getElementById('pages').value,
-        document.getElementsByClassName('read').value
+        document.getElementById('read').value
     )
     myLibrary.push(book);
+    const library = document.getElementById('library');
+    const cards = document.querySelectorAll('.card')
+    cards.forEach(book => library.removeChild(book))
+    
+    for (let i = 0; i < myLibrary.length; i++){
+      postBook(myLibrary[i])
+    }
 
-    myLibrary.forEach( book => 
-      document.body.insertAdjacentHTML("beforeend", 
-      `<div class="card" style="width: 18rem;">
-      <i id="icon" class="fas fa-book"></i>
-      <div class="card-body">
-        <h5 class="card-title">${book.title}</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-      <label class="switch">
-        <input id="check" type="checkbox">
-        <span class="slider round"></span>
-       </label>
-    </div>`))
     modal.style.display = "none";
+    }
+
+    
+function postBook(book){
+  const library = document.getElementById('library');
+
+  library.insertAdjacentHTML("beforeend", 
+  `<div class="card">
+  
+  <div class="card-body">
+    <i class="fas fa-book></i>
+    <h5 class="card-title">${book.title}</h5>
+    <p class="card-author">${book.author}</p>
+    <p class="card-pages">${book.pages}</p>
+  </div>
+
+</div>`)
+
+const card = document.querySelector('.card')
+
+
 }
+
+
+
+
 
 
 var modal = document.getElementById("myModal");

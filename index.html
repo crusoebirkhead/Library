@@ -10,7 +10,7 @@
 <body>
     
     <button id="myBtn">Add Book</button>
-
+    <div id="library"></div>
 <!-- The Modal -->
 <div id="myModal" class="modal">
 
@@ -23,11 +23,8 @@
     <input id="author" type="text">
     <label for="pages">Pages</label>
     <input id="pages" type="text">
-    <label for="read">Yes</label>
-    <input type="radio" class="read" value="yes" type="text">
-    <label for="read">No</label>
-    <input type="radio" class="read" value="no" type="text">
-    <label>Have you read it yet?</label>
+    <label for="checkbox">Read</label>
+    <input id="read" type="checkbox">
     <button onclick="addBook()" id="add">Add</button>
   </div>
 
