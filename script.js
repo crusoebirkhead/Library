@@ -21,7 +21,7 @@ function addBook(){
     const library = document.getElementById('library');
     const cards = document.querySelectorAll('.card')
     cards.forEach(book => library.removeChild(book))
-    
+
     for (let i = 0; i < myLibrary.length; i++){
       postBook(myLibrary[i])
     }
@@ -46,8 +46,20 @@ function postBook(book){
 </div>`)
 
 const card = document.querySelector('.card')
+const removeButton = document.createElement('button')
+const readButton = document.createElement('button')
 
+removeButton.classList.add('remove-button')
+readButton.classList.add('read-button')
 
+card.appendChild(removeButton)
+card.appendChild(readButton)
+
+if(book.read ===false){
+  readButton.textContent = 'Not Read'
+} else{
+  readButton.textContent = 'Read'
+}
 }
 
 
