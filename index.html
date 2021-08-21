@@ -5,25 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@200;300;400&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
-    
-    <button id="myBtn">Add Book</button>
+    <h1>The Library</h1>
+  <button id="myBtn"><lord-icon
+    src="https://cdn.lordicon.com/wxnxiano.json"
+    trigger="morph"
+    colors="primary:#ffffff,secondary:#f25f4c"
+    stroke="49"
+    style="width:100px;height:100px">
+</lord-icon>Add Book</button>
     <div id="library"></div>
+    
 <!-- The Modal -->
 <div id="myModal" class="modal">
 
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close">&times;</span>
-    <label for="title">Title</label>
+    <label id="title-label" for="title">Title</label>
     <input id="title" type="text">
     <label for="author">Author</label>
     <input id="author" type="text">
     <label for="pages">Pages</label>
     <input id="pages" type="text">
-    <label for="checkbox">Read</label>
+    <label id="checkbox-label" for="checkbox">Read</label>
     <input id="read" type="checkbox">
     <button onclick="addBook()" id="add">Add</button>
   </div>
@@ -31,8 +43,9 @@
 </div>
 
 
-  
-        
+
+
+<script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
     <script src="https://kit.fontawesome.com/8b8d4b9832.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>

@@ -40,8 +40,7 @@ function postBook(book){
   `<div class="card">
   
   <div class="card-body">
-    <i class="fas fa-book></i>
-    <h5 class="card-title">${book.title}</h5>
+    <h5 class="card-title"><i class="fas fa-book"></i>${book.title}</h5>
     <p class="card-author">${book.author}</p>
     <p class="card-pages">${book.pages}</p>
   </div>
@@ -52,8 +51,10 @@ const card = document.querySelector('.card')
 const removeButton = document.createElement('button')
 const readButton = document.createElement('button')
 
+// Add data attribute
 card.setAttribute('id', myLibrary.indexOf(book))
 
+// Create remove and read buttons
 removeButton.classList.add('remove-button')
 readButton.classList.add('read-button')
 
@@ -62,14 +63,16 @@ removeButton.innerHTML = 'Delete'
 card.appendChild(removeButton)
 card.appendChild(readButton)
 
-if(book.read === false){
+//Functions for buttons
+if(document.getElementById('read').checked === false){
   readButton.textContent = 'Not Read'
 } else{
   readButton.textContent = 'Read'
 }
 
 removeButton.addEventListener('click', () => {
-  myLibrary.splice(myLibrary.indexOf(book),1)
+  myLibrary.splice(myLibrary.indexOf(book))
+  card.remove()
 })
 
 readButton.addEventListener('click', () => {

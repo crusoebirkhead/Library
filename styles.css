@@ -1,3 +1,4 @@
+/* Modal */
 .modal {
     display: none; 
     position: fixed; 
@@ -13,86 +14,143 @@
   
   
   .modal-content {
-    background-color: #fefefe;
+    background-color: #0f0e17;
     margin: 15% auto; 
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; 
+    width: 15%; 
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
   }
   
   
   .close {
     color: #aaa;
-    float: right;
+    position: relative;
+    left: 45%;
+    top: 10%;
     font-size: 28px;
     font-weight: bold;
   }
   
   .close:hover,
   .close:focus {
-    color: black;
+    color: #f25f4c;
     text-decoration: none;
     cursor: pointer;
   }
 
-  .switch {
+  input { 
+    border: 1px solid black;
+    border-radius: 15px;
+    height: 25px;
+  }
+
+  label {
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
     position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
+    right: 35%;
+    padding: 5px;
+    color: white;
+  }
+
+  #title-label {
+    right: 39%;
+  }
+
+  #checkbox-label {
+    right: 36.5%;
+  }
+
+  #author, #title, #pages {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+
+    #read {
+      position: absolute;
+      top: 59.25%;
+      right: 52%;
+      border-radius: 10%;
+    }
+
+
+
+  /* Library and cards */
+
+  body {
+    background-color: #0f0e17;
+    text-align: center;
+  }
+  h1 {
+    color: white;
+    font-size: 60px;
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 400;
+  }
+
+  h5 {
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+  }
+
+  i {
+    transform: scale(.65)
+  }
+
+  p {
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 200; 
+    font-size: 25px;
+
+  }
+
+  #library {
+    margin: 30px auto 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    width: 80%;
+  }  
+
+  .card{
+    background-color: #f25f4c;
+    width: 55%;
+    border-radius: 2%;
+    border: 3px solid black;
+    height: 18em;
+    text-align: center;
+  }
+
+  /* Buttons */
+
+  button {
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 300;
+  }
+  lord-icon{
+    transform: scale(.8)
+  }
+  #myBtn {
+    font-size: 30px;
+    border-radius: 5%;
+    border: 3px solid #f25f4c;
+    background-color: black;
+    color: white;
+    padding-right: 30px;
   }
   
-  /* Hide default HTML checkbox */
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
+  #add {
+    font-size: 30px;
+    border-radius: 5%;
+    border: 3px solid #f25f4c;
+    background-color: black;
+    color: white;
+
   }
+
   
-  /* The slider */
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  input:checked + .slider {
-    background-color: #2196F3;
-  }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-  }
-  
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
