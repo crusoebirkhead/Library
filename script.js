@@ -28,19 +28,20 @@ function addBook(){
     for (let i = 0; i < myLibrary.length; i++){
       postBook(myLibrary[i])
     }
-
     modal.style.display = "none";
     }
 
 // Creates HTML elements to post book details
 function postBook(book){
+
   const library = document.getElementById('library');
   const card = document.createElement('div')
   const removeButton = document.createElement('button')
   const readButton = document.createElement('button')
+
   library.appendChild(card)
   card.classList.add('card')
-  
+
   card.insertAdjacentHTML("beforeend", 
   `<div class="card-body">
     <h5 class="card-title"><i class="fas fa-book"></i>${book.title}</h5>
@@ -48,8 +49,6 @@ function postBook(book){
     <p class="card-pages">${book.pages}</p>
   </div>`
   )
-
-
 
 // Add data attribute and class
 card.setAttribute('id', myLibrary.indexOf(book))
@@ -94,13 +93,22 @@ readButton.addEventListener('click', () => {
 var modal = document.getElementById("myModal");
 var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
+const title = document.getElementById('title')
+const author = document.getElementById('author')
+const pages = document.getElementById('pages')
+const checkbox = document.getElementById('read')
 
 btn.onclick = function() {
   modal.style.display = "block";
+  title.value = ''
+  author.value = ''
+  pages.value = ''
+  checkbox.value = ''
 }
 
 span.onclick = function() {
   modal.style.display = "none";
+  
 }
 
 window.onclick = function(event) {
