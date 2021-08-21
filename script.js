@@ -35,24 +35,25 @@ function addBook(){
 // Creates HTML elements to post book details
 function postBook(book){
   const library = document.getElementById('library');
-
-  library.insertAdjacentHTML("beforeend", 
-  `<div class="card">
+  const card = document.createElement('div')
+  const removeButton = document.createElement('button')
+  const readButton = document.createElement('button')
+  library.appendChild(card)
+  card.classList.add('card')
   
-  <div class="card-body">
+  card.insertAdjacentHTML("beforeend", 
+  `<div class="card-body">
     <h5 class="card-title"><i class="fas fa-book"></i>${book.title}</h5>
     <p class="card-author">${book.author}</p>
     <p class="card-pages">${book.pages}</p>
-  </div>
+  </div>`
+  )
 
-</div>`)
 
-const card = document.querySelector('.card')
-const removeButton = document.createElement('button')
-const readButton = document.createElement('button')
 
-// Add data attribute
+// Add data attribute and class
 card.setAttribute('id', myLibrary.indexOf(book))
+
 
 // Create remove and read buttons
 removeButton.classList.add('remove-button')
